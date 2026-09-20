@@ -28,6 +28,11 @@ def lennard_jones_energy(phi: float, psi: float, sigma: float = 3.4, epsilon: fl
     ratio = sigma / r
     return 4 * epsilon * (ratio ** 12 - ratio ** 6) + epsilon
 
+@app.get("/api/health")
+def health():
+    """启动脚本就绪探针：后端可用时返回 200。"""
+    return {"status": "ok"}
+
 class SampleRequest(BaseModel):
     residues: int = 10
     conformations: int = 1000

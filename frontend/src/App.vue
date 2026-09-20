@@ -5,6 +5,15 @@
       <p class="subtitle">Ramachandran图 · LJ势能计算 · 3D骨架可视化</p>
     </header>
     <main class="app-main">
+      <el-alert
+        v-if="store.isSampleData"
+        type="warning"
+        :closable="false"
+        show-icon
+        title="当前展示的是内置示例数据（后端未连接）"
+        description="启动后端后点击「生成构象采样」即可获取实时计算结果。启动方式：./scripts/dev.sh"
+        class="sample-banner"
+      />
       <ControlPanel @sample="handleSample" />
       <div class="main-grid" v-if="store.result">
         <div class="plot-area"><RamachandranPlot /></div>
@@ -35,5 +44,6 @@ body{font-family:system-ui,sans-serif;background:#f0f2f5}
 .app-header h1{font-size:1.8rem}
 .subtitle{opacity:.85;margin-top:4px;font-size:.9rem}
 .app-main{padding:20px 40px}
+.sample-banner{margin-bottom:16px}
 .main-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
 </style>

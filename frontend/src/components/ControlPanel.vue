@@ -9,6 +9,7 @@
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="emitSample" :loading="store.loading">🎲 生成构象采样</el-button>
+        <el-button @click="store.loadSampleData()" title="无需后端，直接查看内置示例数据">📁 示例数据</el-button>
       </el-form-item>
     </el-form>
     <div class="filters" v-if="store.result">

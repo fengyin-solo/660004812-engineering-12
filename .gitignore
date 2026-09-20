@@ -59,7 +59,7 @@ jspm_packages/
 # =========================
 # Lock files
 # =========================
-package-lock.json
+# package-lock.json 需要提交：前端依赖按锁定版本安装（npm ci）的唯一依据
 yarn.lock
 pnpm-lock.yaml
 
