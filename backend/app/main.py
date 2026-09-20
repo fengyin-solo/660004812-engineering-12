@@ -46,6 +46,10 @@ class SampleResponse(BaseModel):
     energyRange: list[float]
     stats: dict
 
+@app.get("/api/health")
+def health():
+    return {"status": "ok"}
+
 @app.post("/api/sample", response_model=SampleResponse)
 def sample_conformations(req: SampleRequest):
     confs = []

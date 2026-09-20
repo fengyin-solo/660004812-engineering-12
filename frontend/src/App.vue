@@ -5,6 +5,23 @@
       <p class="subtitle">Ramachandran图 · LJ势能计算 · 3D骨架可视化</p>
     </header>
     <main class="app-main">
+      <el-alert
+        v-if="store.errorMessage"
+        :title="store.errorMessage"
+        type="warning"
+        show-icon
+        :closable="true"
+        @close="store.dismissError()"
+        style="margin-bottom:16px"
+      />
+      <el-alert
+        v-if="store.result && store.demo && !store.errorMessage"
+        title="演示模式：当前展示内置示例数据（1000 个构象），后端未连接。可正常浏览图表、表格与 3D 骨架。"
+        type="info"
+        show-icon
+        :closable="false"
+        style="margin-bottom:16px"
+      />
       <ControlPanel @sample="handleSample" />
       <div class="main-grid" v-if="store.result">
         <div class="plot-area"><RamachandranPlot /></div>
@@ -16,6 +33,7 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import ControlPanel from "./components/ControlPanel.vue"
 import RamachandranPlot from "./components/RamachandranPlot.vue"
 import ProteinViewer3D from "./components/ProteinViewer3D.vue"
@@ -25,6 +43,11 @@ import type { ProteinParams } from "./types"
 
 const store = useProteinStore()
 function handleSample(params: ProteinParams) { store.runSampling(params) }
+
+// 打开页面即可看到完整界面（内置示例数据），无需先启动后端
+onMounted(() => {
+  if (!store.result) store.loadSampleData()
+})
 </script>
 
 <style>

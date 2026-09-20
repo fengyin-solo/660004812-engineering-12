@@ -1,0 +1,15 @@
+{
+  "name": "protein-folding-platform-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "蛋白质折叠分析平台 —— 本地开发统一入口（前端 Vue3/Vite + 后端 FastAPI）",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.js",
+    "dev:frontend": "node scripts/dev.js --frontend",
+    "check": "node scripts/dev.js --check",
+    "postinstall": "echo \"提示：前端依赖请在 frontend/ 下安装（cd frontend && npm ci），后端见 README\""
+  }
+}

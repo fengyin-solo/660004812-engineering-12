@@ -58,8 +58,9 @@ jspm_packages/
 
 # =========================
 # Lock files
+# 说明：本项目使用锁文件固定依赖版本，锁文件必须提交
+# （package-lock.json / backend/requirements.lock 除外）
 # =========================
-package-lock.json
 yarn.lock
 pnpm-lock.yaml
 

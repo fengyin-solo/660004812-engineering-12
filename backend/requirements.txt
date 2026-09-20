@@ -1,3 +1,9 @@
+# 后端直接依赖清单（只列项目直接使用的包，允许手工增删）。
+# 安装与启动脚本实际使用的是 requirements.lock（pip freeze 出的完整锁定版本，勿手改）。
+#
+# 新增/升级直接依赖后：
+#   .venv/bin/pip install <包>==<版本>
+#   .venv/bin/pip freeze > requirements.lock
 fastapi==0.109.0
 uvicorn==0.27.0
 numpy==1.26.3
